@@ -175,7 +175,7 @@ REST_FRAMEWORK = {
 }
 
 
-
+CSRF_COOKIE_NAME = "XCSRF-TOKEN"
 
 # for twilio sms sending
 
