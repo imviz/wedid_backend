@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'weDid.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR,'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,15 +82,7 @@ WSGI_APPLICATION = 'weDid.wsgi.application'
 # customized user
 AUTH_USER_MODEL='user.Account'
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
 
     'default': {
@@ -166,7 +159,7 @@ AWS_DEFAULT_ACL = 'public-read'
 AWS_LOCATION = 'static'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS=[
-  'static',
+  'static','build/static',
 ]
 STATIC_URL = 'http://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
