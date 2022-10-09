@@ -109,7 +109,7 @@ def verification(request):
         response.data={
             'error':'invalid otp !! give currect otp'
         }
-        # return response
+        return response
         # message={'detail':'otp is not valid'}
         # return Response(message,status=status.HTTP_400_BAD_REQUEST)
        
