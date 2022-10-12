@@ -194,9 +194,9 @@ def handle_payment_success(request):
             rent.booked=True
             rent.available=False
             rent.save()
-            user=Account.objects.get(email=user)
-            user.count+=1
-            user.save()  
+            # user=Account.objects.get(email=user)
+            # user.count+=1
+            # user.save()  
         
         
         else:            
